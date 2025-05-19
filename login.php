@@ -30,6 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $db_account_type = $row["account_type"];
 
                 if ($password == $db_password) {
+
+                    session_start();
+
+                        $_SESSION["id"] = $user_id;
+                        
                     if ($db_account_type == "1") {
                         echo "<script>window.location.href='admin';</script>";
                     } else {
